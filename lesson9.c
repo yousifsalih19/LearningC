@@ -7,6 +7,15 @@ The program should check for two arguments and then print the program's usage in
 
 #include <stdio.h>
 
-int main(){
+int main(int argc, char *argv[]){
+	
+	if(argc != 3){
+		printf("usage: ./lesson9.c Firstname Lastname\n");
+
+	}else{
+		printf("hello %s %s\n", argv[1],argv[2]);
+	}
+
+
 	return 0;
 }
