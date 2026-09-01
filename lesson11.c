@@ -8,28 +8,33 @@ Hint: Look up while and for loops. Look up the strcmp() function.
 
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 int main(){
   
   int scores[10]; int count = 0; int check = 1;
-  char response[1];
+  char response;
   
   while(check == 1 && count < 9){
     printf("\nenter score: ");
     scanf("%i", &scores[count]);
 
     printf("continue entering scores? ");
-    scanf("%c" &response);
+    scanf(" %c", &response);
     
-    while(strcmp(response, 'Y') || strcmp(response, 'N')){
+    while(response != 'Y' && response != 'N'){
       printf("enter \"Y\" or \"N\"");
-      scanf("%s", &response)
+      scanf("%c", &response);
     }
-    check = strcmp('Y', response);
-
+    check = (response == 'Y');
+    count++;
   }
+  int total = 0;
+   for(int i = 0; i <= count; i++ ){
+    total += scores[i];
+  }
+  double avg = (double )total / count;
   
-
-
+  printf("The average result is %f",avg);
   return 0;
 }
